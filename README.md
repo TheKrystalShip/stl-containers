@@ -1,7 +1,3 @@
-# Concurrency
+# STL Containers
 
-A collection of thread safe locking wrappers around C++ STL containers.
-
-Implementations can be found in the `includes/TKS` directory.
-
-A working example can be found in `src/main.cpp`.
+A collection of C++ STL compatible containers.

@@ -1,84 +1,30 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "build",
-            "type": "shell",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "windows": {
-                "command": "powershell",
-                "args": [
-                    "-c",
-                    "mingw32-make"
-                ]
-            },
-            "linux": {
-                "command": "bash",
-                "args": [
-                    "-c",
-                    "make"
-                ]
-            },
-            "osx": {
-                "command": "bash",
-                "args": [
-                    "-c",
-                    "make"
-                ]
-            }
-        },
-        {
-            "label": "build & run",
-            "type": "shell",
-            "windows": {
-                "command": "powershell",
-                "args": [
-                    "-c",
-                    "'mingw32-make run'"
-                ]
-            },
-            "linux": {
-                "command": "bash",
-                "args": [
-                    "-c",
-                    "'make run'"
-                ]
-            },
-            "osx": {
-                "command": "bash",
-                "args": [
-                    "-c",
-                    "'make run'"
-                ]
-            }
-        },
-        {
-            "label": "clean",
-            "type": "shell",
-            "windows": {
-                "command": "powershell",
-                "args": [
-                    "-c",
-                    "'mingw32-make clean'"
-                ]
-            },
-            "linux": {
-                "command": "bash",
-                "args": [
-                    "-c",
-                    "'make clean'"
-                ]
-            },
-            "osx": {
-                "command": "bash",
-                "args": [
-                    "-c",
-                    "'make clean'"
-                ]
-            }
-        }
-    ]
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cmake",
+			"label": "CMake: build",
+			"command": "build",
+			"targets": [
+				"ALL_BUILD"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"detail": "CMake template build task"
+		},
+		{
+			"type": "cmake",
+			"label": "CMake: test",
+			"command": "test",
+			"problemMatcher": [],
+			"detail": "CMake template test task",
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			}
+		}
+	]
 }

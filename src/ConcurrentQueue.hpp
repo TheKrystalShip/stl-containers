@@ -103,7 +103,8 @@ namespace TKS::Concurrency
     inline void ConcurrentQueue<T>::pop()
     {
         std::unique_lock<std::mutex> lock(_mutex);
-        _conditional.wait(lock, [&]() { return !_queue.empty(); });
+        _conditional.wait(lock, [&]()
+                          { return !_queue.empty(); });
 
         _queue.pop();
     }
@@ -112,7 +113,8 @@ namespace TKS::Concurrency
     inline T ConcurrentQueue<T>::front()
     {
         std::unique_lock<std::mutex> lock(_mutex);
-        _conditional.wait(lock, [&]() { return !_queue.empty(); });
+        _conditional.wait(lock, [&]()
+                          { return !_queue.empty(); });
 
         return _queue.front();
     }
